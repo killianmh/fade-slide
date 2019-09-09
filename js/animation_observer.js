@@ -11,13 +11,14 @@
 //      -data-slide-from: direction element slides FROM
 //      -data-slide-amount: how much element is offset (pixels)
 //      -data-slide-speed: duration of slide
+//      -data-threshold: custom threshold for intersection observer options
 //      -data-anim-infinite: to be implemented later
 // ==========================================================================
 
 
 // variables
 var animNodes;
-var observer;
+var observers = [];
 
 // array for holding anime settings for each animated element
 var animations = [];
@@ -35,8 +36,6 @@ var observerOptions = {
 
 // init function
 function init() {
-    // initialize intersection observer
-    observer = new IntersectionObserver(observerCallback, observerOptions);
 
     // find all animated element wrappers with data-anim attribute
     animNodes = document.querySelectorAll("[data-anim]");
@@ -66,6 +65,11 @@ function init() {
         var slideAmount = element.getAttribute("data-slide-amount");
         var slideDuration = element.getAttribute("data-slide-speed");
 
+
+        // Get threshold settings from data-attributes
+        var threshold = element.getAttribute("data-threshold");
+
+
         console.log(animated)
 
         if (fade) {
@@ -76,11 +80,21 @@ function init() {
             }
         }
 
-        if(delay){
+        if (delay) {
             animation.delay = delay
         } else {
             animation.delay = "0"
         }
+
+        if(threshold) {           
+            var num = parseFloat(threshold);
+            observerOptions.threshold = num;
+            // console.log(num)
+        } else {
+            observerOptions.threshold = defaultThreshold;
+        }
+
+        console.log(observerOptions)
 
 
         switch (slideDir) {
@@ -136,8 +150,11 @@ function init() {
         // add animation object to array of animations
         animations.push(animation);
 
+        // initialize intersection observer
+        observers[index] = new IntersectionObserver(observerCallback, observerOptions);
+
         // observe wrapper element
-        observer.observe(element);
+        observers[index].observe(element);
     })
 
     console.log(animations)
@@ -153,7 +170,7 @@ function observerCallback(entries, observer) {
         var infinite = element.hasAttribute("data-anim-infinite") ? true : false;
 
 
-        if (entry.isIntersecting && entry.intersectionRatio >= 0.4) {
+        if (entry.isIntersecting) {
             console.log("in viewport")
 
             // get index of animation in animations array
