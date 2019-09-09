@@ -22,11 +22,14 @@ var observer;
 var animations = [];
 
 // intersection observer settings
-// threshold set so 40% of element must be in viewport
+// default threshold set so 40% of element must be in viewport
 // before element animates
+
+var defaultThreshold = 0.4;
+
 var observerOptions = {
     rootMargin: '0px',
-    threshold: 0.4
+    threshold: defaultThreshold
 }
 
 // init function
@@ -41,7 +44,11 @@ function init() {
     Array.prototype.forEach.call(animNodes, function (element, index) {
         // create anime object which holds settings for animations to be called later in animate function; if wrapper element is a slide-in element, set initial state of child
 
-        var animated = element.getElementsByClassName("content")[0];
+        // var animated = element.getElementsByClassName("content")[0];
+        var animated = element.querySelectorAll("[data-animated]")[0];
+
+        // hide elements first
+        animated.style.opacity = "0";
 
         var animation = {
             targets: animated,
@@ -52,6 +59,8 @@ function init() {
 
         // Get animation/fade settings from HTML data attributes
         var fade = element.getAttribute("data-fade");
+
+        var delay = element.getAttribute("data-delay");
 
         var slideDir = element.getAttribute("data-slide-from");
         var slideAmount = element.getAttribute("data-slide-amount");
@@ -65,6 +74,12 @@ function init() {
                 easing: "linear",
                 duration: fade
             }
+        }
+
+        if(delay){
+            animation.delay = delay
+        } else {
+            animation.delay = "0"
         }
 
 
@@ -147,6 +162,9 @@ function observerCallback(entries, observer) {
 
             // run animation from corresponding animation objects in animations array
             anime(animations[index]);
+
+            // unobserve element since animation is not infinite
+            observer.unobserve(element);
 
         }
         else {
