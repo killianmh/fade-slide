@@ -3,9 +3,10 @@
 // 1. load anime library in document head
 // 2. load intersection observer api polyfill: <script type="text/javascript" src="js/intersectionobserver.js"></script>
 // 3. load this script (animation_observer.js)
-// 4. use correct data attributes on element triggers; add content in child nodes
+// 4. use correct data attributes on element triggers; add content in child node which has data-animated attribute
 // 5. data attributes and explanations:
 //      -data-anim: script selects all elements with this attribute and uses them as triggers for intersection observer
+//      -data-animated: child node that is being animated
 //      -data-fade: duration of fade
 //      -data-slide-from: direction element slides FROM
 //      -data-slide-amount: how much element is offset (pixels)
@@ -44,7 +45,6 @@ function init() {
     Array.prototype.forEach.call(animNodes, function (element, index) {
         // create anime object which holds settings for animations to be called later in animate function; if wrapper element is a slide-in element, set initial state of child
 
-        // var animated = element.getElementsByClassName("content")[0];
         var animated = element.querySelectorAll("[data-animated]")[0];
 
         // hide elements first
