@@ -70,8 +70,6 @@ function init() {
         var threshold = element.getAttribute("data-threshold");
 
 
-        console.log(animated)
-
         if (fade) {
             animation.opacity = {
                 value: 1,
@@ -89,7 +87,6 @@ function init() {
         if(threshold) {           
             var num = parseFloat(threshold);
             observerOptions.threshold = num;
-            // console.log(num)
         } else {
             observerOptions.threshold = defaultThreshold;
         }
@@ -158,13 +155,12 @@ function init() {
     })
 
     console.log(animations)
+    console.log(observers)
 }
 
 function observerCallback(entries, observer) {
     entries.forEach(function (entry) {
         var element = entry.target;
-
-        console.log(element)
 
         // To be implemented later:
         var infinite = element.hasAttribute("data-anim-infinite") ? true : false;
