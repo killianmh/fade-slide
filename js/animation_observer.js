@@ -4,15 +4,15 @@
 // 3. load this script (animation_observer.js)
 // 4. use correct data attributes on element triggers; add content in child node which has data-animated attribute
 // 5. data attributes and explanations:
-//      -data-anim: script selects all elements with this attribute and uses them as triggers for intersection observer
-//      -data-animated: child node that is being animated
-//      -data-delay: duration of animation delay (ms)
-//      -data-fade: duration of fade (ms)
-//      -data-slide-from: direction element slides FROM
-//      -data-slide-amount: how much element is offset (pixels)
-//      -data-slide-speed: duration of slide (ms)
-//      -data-threshold: custom threshold for intersection observer options (decimal b/t 0.0 and 1.0)
-//      -data-anim-infinite: to be implemented later
+//      * data-anim: this attribute marks an element as a trigger for intersection observer; this element wraps the element which is actually animated
+//      * data-animated: child node that is being animated
+//      * data-delay: duration of animation delay (ms)
+//      * data-fade: duration of fade (ms)
+//      * data-slide-from: direction element translates FROM
+//      * data-slide-amount: how much element is initially offset (pixels)
+//      * data-slide-speed: duration of translation (ms)
+//      * data-threshold: threshold for intersection observer options (decimal b/t 0.0 and 1.0); this determines the percentage of the trigger that must be visible before the animation is triggered
+//      * data-anim-infinite: not yet implemented implemented later
 // 6. see https://animejs.com/ and https://developer.mozilla.org/en-US/docs/Web/API/Intersection_Observer_API for documentation on these topics
 // ==========================================================================
 
