@@ -1,5 +1,5 @@
 # fade-slide
-Simple fade/slide animations using intersection observer API.
+Simple fade/slide animations using anime.js library and intersection observer API.
 
 ## About
 This uses [anime.js](https://animejs.com/) and the [Intersection Observer API](https://developer.mozilla.org/en-US/docs/Web/API/Intersection_Observer_API) to animate elements when scrolled into the viewport. Currently, only translating and fading are supported, but it can easily be expanded to include other animation types.
@@ -19,4 +19,4 @@ This uses [anime.js](https://animejs.com/) and the [Intersection Observer API](h
 * data-slide-amount: how much element is initially offset (pixels)
 * data-slide-speed: duration of translation (ms)
 * data-threshold: threshold for intersection observer options (decimal b/t 0.0 and 1.0); this determines the percentage of the trigger that must be visible before the animation is triggered
-* data-anim-infinite: not yet implemented implemented later
+* data-anim-infinite: not yet implemented
