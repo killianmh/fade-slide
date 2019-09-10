@@ -1,18 +1,19 @@
 // EXPLANATION:
 // 1. load anime library in document head: <script src="js/anime.min.js"></script>
-// 1. load anime library in document head
 // 2. load intersection observer api polyfill: <script type="text/javascript" src="js/intersectionobserver.js"></script>
 // 3. load this script (animation_observer.js)
 // 4. use correct data attributes on element triggers; add content in child node which has data-animated attribute
 // 5. data attributes and explanations:
 //      -data-anim: script selects all elements with this attribute and uses them as triggers for intersection observer
 //      -data-animated: child node that is being animated
-//      -data-fade: duration of fade
+//      -data-delay: duration of animation delay (ms)
+//      -data-fade: duration of fade (ms)
 //      -data-slide-from: direction element slides FROM
 //      -data-slide-amount: how much element is offset (pixels)
-//      -data-slide-speed: duration of slide
-//      -data-threshold: custom threshold for intersection observer options
+//      -data-slide-speed: duration of slide (ms)
+//      -data-threshold: custom threshold for intersection observer options (decimal b/t 0.0 and 1.0)
 //      -data-anim-infinite: to be implemented later
+// 6. see https://animejs.com/ and https://developer.mozilla.org/en-US/docs/Web/API/Intersection_Observer_API for documentation on these topics
 // ==========================================================================
 
 
@@ -26,7 +27,6 @@ var animations = [];
 // intersection observer settings
 // default threshold set so 40% of element must be in viewport
 // before element animates
-
 var defaultThreshold = 0.4;
 
 var observerOptions = {
