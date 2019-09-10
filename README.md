@@ -1,4 +1,4 @@
-# fade-slide
+# Fade-slide
 Simple fade/slide animations using anime.js library and intersection observer API.
 
 ## About
@@ -10,7 +10,7 @@ This uses [anime.js](https://animejs.com/) and the [Intersection Observer API](h
 3. load animation_observer script `<script src="js/animation_observer.js"></script>`
 4. use correct data attributes on element triggers; add content in children nodes which have data-animated attribute
 
-##  data attributes and explanations:
+##  Data attributes and explanations:
 * data-anim: this attribute marks an element as a trigger for intersection observer; this element wraps the element which is actually animated
 * data-animated: child node that is being animated
 * data-delay: duration of animation delay (ms)
