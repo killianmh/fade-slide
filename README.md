@@ -10,8 +10,7 @@ This uses [anime.js](https://animejs.com/) and the [Intersection Observer API](h
 3. load animation_observer script `<script src="js/animation_observer.js"></script>`
 4. use correct data attributes on element triggers and animated children
 5. content should be placed inside elements with data-animated attributes
-6. add one animations array inside animationHolder array for each data-anim DOM node
-  *each animations array contains one or more objects which controls the animation of each data-animated DOM node; this object is passed to the anime function; for formatting, see https://animejs.com/documentation/#specificPropParameters 
+6. add one animations array inside animationHolder array for each data-anim DOM node (each animations array contains one or more objects which controls the animation of each data-animated DOM node; this object is passed to the anime function; for formatting, see https://animejs.com/documentation/#specificPropParameters )
 7. see https://animejs.com/ and https://developer.mozilla.org/en-US/docs/Web/API/Intersection_Observer_API for documentation on these topics
 
 ##  Data attributes and explanations:
