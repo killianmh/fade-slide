@@ -9,6 +9,7 @@ This uses [anime.js](https://animejs.com/) and the [Intersection Observer API](h
 2. load intersection observer api polyfill for IE support: `<script type="text/javascript" src="js/intersectionobserver.js"></script>`
 3. load animation_observer script `<script src="js/animation_observer.js"></script>`
 4. use correct data attributes on element triggers; add content in children nodes which have data-animated attribute
+5. see https://animejs.com/ and https://developer.mozilla.org/en-US/docs/Web/API/Intersection_Observer_API for documentation on these topics
 
 ##  Data attributes and explanations:
 * data-anim: this attribute marks an element as a trigger for intersection observer; this element wraps the element which is actually animated
@@ -19,4 +20,5 @@ This uses [anime.js](https://animejs.com/) and the [Intersection Observer API](h
 * data-slide-amount: how much element is initially offset (pixels)
 * data-slide-speed: duration of translation (ms)
 * data-threshold: threshold for intersection observer options (decimal b/t 0.0 and 1.0); this determines the percentage of the trigger that must be visible before the animation is triggered
+* data-stagger: delay between sibling animated elements (ms); use if all siblings will have same fade/animations; to stagger siblings with different animations or fades, use the data-delay attribute
 * data-anim-infinite: not yet implemented

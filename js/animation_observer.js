@@ -12,6 +12,7 @@
 //      * data-slide-amount: how much element is initially offset (pixels)
 //      * data-slide-speed: duration of translation (ms)
 //      * data-threshold: threshold for intersection observer options (decimal b/t 0.0 and 1.0); this determines the percentage of the trigger that must be visible before the animation is triggered
+//      * data-stagger: delay between sibling animated elements (ms); use if all siblings will have same fade/animations; for siblings with different animations or fades to stagger, use the data-delay attribute
 //      * data-anim-infinite: not yet implemented implemented later
 // 6. see https://animejs.com/ and https://developer.mozilla.org/en-US/docs/Web/API/Intersection_Observer_API for documentation on these topics
 // ==========================================================================
@@ -44,10 +45,13 @@ function init() {
     Array.prototype.forEach.call(animNodes, function (element, index) {
         // create anime object which holds settings for animations to be called later in animate function; if wrapper element is a slide-in element, set initial state of child
 
-        var animated = element.querySelectorAll("[data-animated]")[0];
+        var animated = element.querySelectorAll("[data-animated]");
 
         // hide elements first
-        animated.style.opacity = "0";
+        Array.prototype.forEach.call(animated, function(el, index){
+            el.style.opacity = "0";
+        })
+        
 
         var animation = {
             targets: animated,
@@ -60,6 +64,8 @@ function init() {
         var fade = element.getAttribute("data-fade");
 
         var delay = element.getAttribute("data-delay");
+
+        var stagger = parseInt(element.getAttribute("data-stagger"));
 
         var slideDir = element.getAttribute("data-slide-from");
         var slideAmount = element.getAttribute("data-slide-amount");
@@ -84,6 +90,10 @@ function init() {
             animation.delay = "0"
         }
 
+        if(stagger){
+            animation.delay = anime.stagger(stagger)
+        }
+
         if(threshold) {           
             var num = parseFloat(threshold);
             observerOptions.threshold = num;
@@ -97,7 +107,9 @@ function init() {
         switch (slideDir) {
             case "top":
                 // set initial state of child
-                animated.style.transform = "translateY(" + (-1 * slideAmount) + "px)";
+                Array.prototype.forEach.call(animated, function(el, index){
+                    el.style.transform = "translateY(" + (-1 * slideAmount) + "px)";
+                })
 
                 // Set animation object
                 animation.translateY = {
@@ -108,7 +120,9 @@ function init() {
                 break;
             case "right":
                 // set initial state of child
-                animated.style.transform = "translateX(" + slideAmount + "px)";
+                Array.prototype.forEach.call(animated, function(el, index){
+                    el.style.transform = "translateX(" + slideAmount + "px)";
+                })
 
                 // Set animation object
                 animation.translateX = {
@@ -119,7 +133,9 @@ function init() {
                 break;
             case "bottom":
                 // set initial state of child
-                animated.style.transform = "translateY(" + slideAmount + "px)";
+                Array.prototype.forEach.call(animated, function(el, index){
+                    el.style.transform = "translateY(" + slideAmount + "px)";
+                })
 
                 // Set animation object
                 animation.translateY = {
@@ -130,7 +146,9 @@ function init() {
                 break;
             case "left":
                 // set initial state of child
-                animated.style.transform = "translateX(" + (-1 * slideAmount) + "px)";
+                Array.prototype.forEach.call(animated, function(el, index){
+                    el.style.transform = "translateX(" + (-1 * slideAmount) + "px)";
+                })
 
                 // Set animation object
                 animation.translateX = {
