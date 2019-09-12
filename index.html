@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -10,28 +11,26 @@
     <!-- load anime library -->
     <script src="js/anime.min.js"></script>
 </head>
+
 <body>
-
-    <section 
-        class="module" 
-        data-anim 
-        data-fade = "3500" 
-        data-slide-from = "right"
-        data-slide-amount = "500" 
-        data-slide-speed = "2500"
-        data-threshold = "0.1">
+    <section    class="module" 
+                data-anim 
+                data-threshold="0.1">
         <div class="content" data-animated>
-            
+
         </div>
     </section>
-    <section    class="module flex-cont"
+    <section    class="module" 
                 data-anim 
-                data-fade = "1500" 
-                data-slide-from = "bottom"
-                data-slide-amount = "500" 
-                data-slide-speed = "2500"
-                data-threshold = "0.1"
-                data-stagger="100">
+                data-threshold="0.9">
+        <div class="content" data-animated>
+
+        </div>
+    </section>
+    <!-- Stagger animations without using anime stagger -->
+    <section    class="module flex-cont" 
+                data-anim 
+                data-threshold="0.8">
         <div class="item" data-animated>
 
         </div>
@@ -41,137 +40,31 @@
         <div class="item" data-animated>
 
         </div>
-        <div class="item" data-animated>
-
-        </div>
     </section>
-    <section class="module flex-cont">
-        <div    class="item-cont"
+    <!-- Stagger animations using anime stagger -->
+    <section    class="module" 
                 data-anim 
-                data-fade = "100"
-                data-delay="0" 
-                data-slide-from = "bottom"
-                data-slide-amount = "500" 
-                data-slide-speed = "2500"
-                data-threshold = "0.1">
-            <div class="item" data-animated>
+                data-threshold="0.1">
+        <div class="flex-cont" 
+             data-animated 
+             data-anim-stagger = "true">
+            <div class="item" data-anim-stagger-child>
+
             </div>
-        </div>
-        <div    class="item-cont"
-                data-anim 
-                data-fade = "200"
-                data-delay="100"  
-                data-slide-from = "bottom"
-                data-slide-amount = "500" 
-                data-slide-speed = "2500"
-                data-threshold = "0.1">
-            <div class="item" data-animated>
+            <div class="item" data-anim-stagger-child>
+
             </div>
-        </div>
-        <div    class="item-cont"
-                data-anim 
-                data-fade = "1000"
-                data-delay="200"  
-                data-slide-from = "bottom"
-                data-slide-amount = "500" 
-                data-slide-speed = "2500"
-                data-threshold = "0.1">
-            <div class="item" data-animated>
-            </div>
-        </div>
-        <div    class="item-cont"
-                data-anim 
-                data-fade = "3000"
-                data-delay="300"  
-                data-slide-from = "bottom"
-                data-slide-amount = "500" 
-                data-slide-speed = "2500"
-                data-threshold = "0.1">
-            <div class="item" data-animated>
+            <div class="item" data-anim-stagger-child>
+
             </div>
         </div>
     </section>
-    <section 
-        class="module" 
-        data-anim 
-        data-anim-infinite 
-        data-fade = "8000"
-        data-threshold = "0.8"
-        >
-        <div class="content" data-animated>
-
-        </div>
-    </section>
-    <section 
-        class="module">
-        
-    </section>
-    <section 
-        class="module" 
-        data-anim 
-        data-fade = "1000" 
-        data-delay="200"
-        data-slide-from = "left"
-        data-slide-amount = "500" 
-        data-slide-speed = "3000">
-        <div class="content" data-animated>
-
-        </div>
-    </section>
-    <section 
-        class="module" 
-        data-anim 
-        data-fade = "3500" 
-        data-delay="200"
-        data-slide-from = "top"
-        data-slide-amount = "500" 
-        data-slide-speed = "2000">
-        <div class="content" data-animated>
-
-        </div>
-    </section>
-    <section 
-        class="module" 
-        data-anim 
-        data-fade = "2500" 
-        data-slide-from = "bottom"
-        data-slide-amount = "500" 
-        data-slide-speed = "3000">
-        <div class="content" data-animated>
-
-        </div>
-    </section>
-    <section 
-        class="module">
-        
-    </section>
-    <section 
-        class="module" 
-        data-anim 
-        data-fade = "1000"
-        data-slide-from = "bottom"
-        data-slide-amount = "500" 
-        data-slide-speed = "2500" >
-        <div class="content" data-animated>
-
-        </div>
-    </section>
-    <section 
-        class="module" 
-        data-anim 
-        data-fade = "3500" 
-        data-slide-from = "right"
-        data-slide-amount = "500" 
-        data-slide-speed = "2500">
-        <div class="content" data-animated>
-            
-        </div>
-    </section>
-
-    <!-- Intersection observer api polyfill -->
-    <script type="text/javascript" src="js/intersectionobserver.js"></script>
-
-    <!-- Script for sensing when elements are in the viewport and toggling animation classes -->
-    <script type="text/javascript" src="js/animation_observer.js"></script>
 </body>
+
+<!-- Intersection observer api polyfill -->
+<script type="text/javascript" src="js/intersectionobserver.js"></script>
+
+<!-- Script for sensing when elements are in the viewport and toggling animation classes -->
+<script type="text/javascript" src="js/animation_observer.js"></script>
+
 </html>
