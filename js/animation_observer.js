@@ -7,7 +7,7 @@
 //      * data-anim: this attribute marks an element as a trigger for intersection observer; this element wraps the element which is actually animated
 //      * data-animated: child node that is being animated
 //      * data-threshold: threshold for intersection observer options (decimal b/t 0.0 and 1.0); this determines the percentage of the trigger that must be visible before the animation is triggered; if not specified, this script will use a default value
-//      * data-stagger: tells script that children of this node will stagger their animations (ms); use if all siblings will have same fade/animations; for siblings with different animations or fades to stagger, animate them separately
+//      * data-anim-stagger: tells script that children of this node will stagger their animations (ms); use if all siblings will have same fade/animations; for siblings with different animations or fades to stagger, animate them separately
 //      * data-anim-infinite: not yet implemented
 // 6. Add one animations array inside this script for each data-anim DOM node
 //      -this array contains one or more objects which controls the animation of each data-animated DOM node; this object is passed to the anime function; for formatting, see https://animejs.com/documentation/#specificPropParameters
