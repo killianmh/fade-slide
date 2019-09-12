@@ -24,3 +24,30 @@ section.module:nth-child(odd) > .content{
 section.module:nth-child(even) > .content{
     background-color: gold;
 }
+
+.flex-cont {
+    display: flex;
+    height: 100%;
+}
+
+.flex-cont .item,
+.flex-cont .item-cont {
+    flex: 1;
+    height: 100%;
+}
+
+.flex-cont > .item:nth-child(odd) {
+    background-color: orange;
+}
+
+.flex-cont .item-cont:nth-child(odd) .item {
+    background-color: orange;
+}
+
+.flex-cont > .item:nth-child(even) {
+    background-color: blue;
+}
+
+.flex-cont .item-cont:nth-child(even) .item {
+    background-color: blue;
+}
