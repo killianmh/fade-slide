@@ -14,40 +14,34 @@ section.module > .content {
     width: 80%;
     height: 100%;
     margin: 0 auto;
-    opacity: 0;
 }
 
-section.module:nth-child(odd) > .content{
+section.module:nth-child(odd)  .content{
     background-color: purple;
 }
 
-section.module:nth-child(even) > .content{
+section.module:nth-child(even)  .content{
     background-color: gold;
 }
 
-.flex-cont {
+.flex-cont,
+section.module.flex-cont {
     display: flex;
-    height: 100%;
+    width: 80%;
+    height: 50vh;
+    margin: 0 auto 25vh;
 }
 
-.flex-cont .item,
-.flex-cont .item-cont {
+.flex-cont > .item {
+    position: relative;
     flex: 1;
     height: 100%;
 }
 
-.flex-cont > .item:nth-child(odd) {
+.flex-cont .item:nth-child(odd) {
     background-color: orange;
 }
 
-.flex-cont .item-cont:nth-child(odd) .item {
-    background-color: orange;
-}
-
-.flex-cont > .item:nth-child(even) {
-    background-color: blue;
-}
-
-.flex-cont .item-cont:nth-child(even) .item {
+.flex-cont .item:nth-child(even) {
     background-color: blue;
 }
